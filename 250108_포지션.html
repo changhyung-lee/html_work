@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포지션</title>
+    <style>
+        .divBox {
+            width: 500px;
+            height: 200px;
+            background-color: #aaa;
+            border: 1px solid #ccc;
+        }
+        #static {
+            position: static;
+        }
+        #relative_1 {
+            position: relative;
+        }
+        #relative_2 {
+            position: relative;
+            left: 100px; /* 왼쪽에서 100px 이동 */
+            top: -50px; /* 위쪽에서 -50px 이동 */
+        }
+        #fixed {
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            position: fixed;
+            right: 30px; /* 오른쪽에서 30px 이동 */
+            top: 30px; /* 위쪽에서 30px 이동 */
+        }
+        #absolute_1 {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            border: 1px solid red;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+        #contents {
+            background: url('images/bg.jpg') no-repeat;
+            background-size: cover;
+            width: 800px;
+            height: 500px;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+        #contents h1 {
+            color: #fff;
+            font-size: 120px;
+            text-shadow: 2px 3px 0 #000;
+            position: absolute;
+            right: 100px;
+            bottom: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 포지션 (static, relative, absolute, fixed)
+    static : 기본값으로 문서의 흐름에 따라 배치된다
+    relative : static과 같지만, top, right, bottom, left 속성을 사용할 수 있다
+    absolute : 부모가 relative 인 경우 부모를 기준으로 top, right, bottom, left 속성을 사용한다
+    fixed : 브라우저 기준으로 top, right, bottom, left 속성을 사용한다 -->
+
+    <div id="static" class="divBox">static</div>
+    <div id="relative_1" class="divBox">relative1</div>
+    <div id="relative_2" class="divBox">relative2
+        <div id="absolute_1">absolute_1</div>
+    </div>
+    <div id="fixed" class="divBox">fixed</div>
+
+    <hr>
+
+    <div id="contents">
+        <h1>CSS3</h1>
+    </div>
+</body>
+</html>

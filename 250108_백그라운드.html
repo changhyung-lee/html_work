@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>백그라운드</title>
+    <style>
+        .desc {
+            border: 10px dotted black;
+            background-color: orange;
+            width: 350px;
+            padding: 20px;
+            margin-right: 20px;
+            /* float: left; */
+        }
+        #clip-border {background-clip: border-box;}
+        #clip-padding {background-clip: padding-box;}
+        #clip-content {background-clip: content-box;}
+
+        #imageBgbox {
+            width: 100%;
+            height: 500px;
+            background-image: url('images/bg1.jpg');
+            background-repeat: no-repeat; /*repeat, no-repeat, repeat-x(가로), repeat-y(세로)*/
+        }
+        .posUl {
+            list-style: none;
+            margin-left: -30px;
+        }
+        .posLi  {
+            padding-left: 50px;
+            line-height: 40px;
+            background-image: url('images/dot.png');
+            background-repeat: no-repeat;
+            background-position: left center;
+        }
+        #wrapper {
+            width: 100%;
+            height: 1000px;
+            background-image: url('images/bg2.png');
+            background-repeat: no-repeat;
+            background-position: right top;
+            background-attachment: scroll;
+        }
+        .divbox {
+            width: 400px;
+            height: 250px;
+            padding: 20px;
+            border: 20px solid #ccc;
+            margin-bottom: 20px;
+            background-image: url('images/9_bg3.png');
+            background-repeat: no-repeat;
+            background-position: right top;
+        }
+        #bg1 {background-origin: padding-box;}
+        #bg2 {background-origin: border-box;}
+        #bg3 {background-origin: content-box;}
+    #wrapper2 {
+        width: 1100px;
+        margin: 50px auto;
+    }
+    .divbox2 {
+        display: inline-block;
+        border: 1px solid black;
+        width: 300px;
+        height: 300px;
+        margin: 20px;
+        background: url('images/9_bg4.jpg') no-repeat left top;
+    }
+    #bgSize1 {background-size: auto;}
+    #bgSize2 {background-size: auto 150px; background-repeat: repeat-y;}
+    #bgSize3 {background-size: 50%;}
+    #bgSize4 {background-size: 100% 100%;}
+    #bgSize5 {background-size: contain;}
+    #bgSize6 {background-size: cover;}
+    </style>
+</head>
+<body>
+    <h1>1.background-clip 속성 ;배경을 어디까지 적용할 것인가?</h1>
+    <!-- 
+    border-box : 테두리까지 배경이 적용, 기본값
+    padding-box : padding 까지 배경이 적용
+    content-box : 내용부분만 배경이 적용
+     -->
+    <div id="container">
+        <div class="desc" id="clip-border">
+            <h1>레드향</h1>
+            <p>껍질이 붉은 빛이 돌아 <b>레드향</b>이라 불린다.</p>
+            <p>레드향은 <em>한라봉과 귤을 교배</em>힌 것이다.</p>
+        </div>
+        <div class="desc" id="clip-padding">
+            <h1>레드향</h1>
+            <p>껍질이 붉은 빛이 돌아 <b>레드향</b>이라 불린다.</p>
+            <p>레드향은 <em>한라봉과 귤을 교배</em>힌 것이다.</p>
+        </div>
+        <div class="desc" id="clip-content">
+            <h1>레드향</h1>
+            <p>껍질이 붉은 빛이 돌아 <b>레드향</b>이라 불린다.</p>
+            <p>레드향은 <em>한라봉과 귤을 교배</em>힌 것이다.</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <h1>2.background-image : 배경으로 이미지 삽입</h1>
+    <!-- background-repeat : 배경이미지를 반복해서 풀력할 것인가?
+        속성값 : 
+            repeat : 요소의 크기에 맞게 반복
+            no-repeat : 이미지를 반복하지 않고 1회만 출력
+            repeat-x : 요소의 너비에 맞게 반복
+            repeat-y : 요소의 높이에 맞게 반복
+        --> 
+    <div id="imageBgbox"></div>
+
+    <hr>
+
+    <h1>3.background-position : 배경이미지를 반복하지 않을 경우, 이미지 위치를 지정</h1>
+    <!-- background-position : 수평위치 수직위치
+        수평위치 : left / center / right / 백분율 / 길이값
+        수직위치 : top / center / bottom / 백분율 / 길이값 -->
+    <h3>이지스퍼블리싱</h3>
+    <ul class="posUl">
+        <li class="posLi">회사소개</li>
+        <li class="posLi">도서</li>
+        <li class="posLi">자료실</li>
+        <li class="posLi">질문답변</li>
+    </ul>
+    
+    <hr>
+
+    <h1>4.background-orgin : 배경이미지를 배치하기 위한 기준</h1>
+    <!-- 속성값
+        padding-box : 패딩까지 기준으로 이미지배치 
+        border-box : 테투리까지 기준으로 이미지배치
+        content-box : 콘테트까지 기준으로 이미지배치 -->
+    <!-- background-attanchment : 배경이미지를 고정하는 속성
+        속성값
+        scroll : 배경이미지가 스크롤과 함께 이동
+        fixed : 배경이미지가 고정되어 내용만 이동 -->
+    <div id="wrapper">
+        <div id="bg1" class="divbox">
+            <h2>바빠 시리즈</h2>
+            <h3>-바쁜 학생을 위한 빠른 학습법</h3>
+            <p>쉬운 내용은 압축하여 빠르게 어려운 내용은 더 많이 공부</p>
+        </div>
+        <div id="bg2" class="divbox">
+            <h2>바빠 시리즈</h2>
+            <h3>-바쁜 학생을 위한 빠른 학습법</h3>
+            <p>쉬운 내용은 압축하여 빠르게 어려운 내용은 더 많이 공부</p>
+        </div>
+        <div id="bg3" class="divbox">
+            <h2>바빠 시리즈</h2>
+            <h3>-바쁜 학생을 위한 빠른 학습법</h3>
+            <p>쉬운 내용은 압축하여 빠르게 어려운 내용은 더 많이 공부</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <h1>5.background 속성과 background-size 속성</h1>
+    <!-- background : 앞서 작성한 image, repeat, position, attachment 를 한번에 작성 -->
+    
+    <div id="wrapper2">
+        <div class="divbox2" id="bgSize1"></div>
+        <div class="divbox2" id="bgSize2"></div>
+        <div class="divbox2" id="bgSize3"></div>
+        <div class="divbox2" id="bgSize4"></div>
+        <div class="divbox2" id="bgSize5"></div>
+        <div class="divbox2" id="bgSize6"></div>
+    </div>
+</body>
+</html>

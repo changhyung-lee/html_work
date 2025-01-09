@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>블록과 인라인</title>
+    <style>
+        /* body * {
+            border: 1px solid blue;
+        } */
+        .accent {
+            color: red;
+            font-weight: bolds;
+            width: 300px;
+            padding: 100;
+        }
+        .box1 {
+            width: 400;
+            height: 200;
+        }
+        .box_content {
+            box-sizing: content-box; /*기본값이므로 따로 지정하지 않아도 된다 */
+            width: 200px;
+            height: 100px;
+            padding: 100px;
+            border: 10px solid black;
+        }
+        .box_border {
+            box-sizing: border-box;
+            width: 200px;
+            height: 100px;
+            padding: 20px;
+            border: 10px solid blue;
+        }
+        .shadowBTN {
+            font-size: 1em;
+            background: #fff;
+            margin: 15px;
+            border: 1px solid black;
+            box-shadow: 6px 11px 5px 4px black;
+        }
+        .solidBox {
+            width: 200px;
+            height: 100px;
+            border-style: solid;
+            border-width: 5px;
+            /* 4가지(top, right, bottom, left)로 사용 할 수 있다*/
+            /* border-width:5px; = 모든 방향이 5px*/ 
+            /* border-width:5px 10px; = top, bottom 5px / right, left 10px*/ 
+            /* border-width:5px 10px 15px; = top 5px / right 10px / bottom 15px / left 10px */ 
+            /* border-width:5px 10px 15px 20px; = 각각의 지정 값을 따라간다/ */
+            border-color: red;
+            border-top-color: green;
+            border-bottom-color: yellow;
+            margin: 15px;
+        }
+        .dottedBox {
+            width: 200px;
+            height: 100px;
+            border-style: dotted;
+            border-width: 5px;
+            margin: 15px;
+        }
+        .dashedBox {
+            width: 200px;
+            height: 100px;
+            border-style: dashed;
+            border-width: 5px;
+            margin: 15px;
+        }
+        .borderDiv {
+            width: 200px;
+            height: 100px;
+            margin: 15px;
+            border: 5px solid red;
+            border-bottom: 10px dotted blue;
+            /* border 를 통해 width, height, margin, border를 한번에 지정 가능 */
+        }
+        .roundedBox {
+            width: 200px;
+            height: 100px;
+            margin: 15px;
+            border: 5px solid black;
+            border-radius: 50px;
+            /* border-radius 는 반지름의 크기를 지정한다 */
+        }
+        .roundedBox2 {
+            width: 200px;
+            height: 200px;
+            margin: 15px;
+            border: 2px solid black;
+            /* border-radius의 가로 세로 다르게 설정하는 방법 */
+            border-radius: 50px/100px;
+            /* 위치를 지정했다면 / 는 사용 안함 */
+            /* border-bottom-left-radius: 100px 50px; */
+        }
+        .marginDiv {
+            width: 200px;
+            height: 100px;
+            display: inline-block;
+            border: 1px solid black;
+        }
+        #margin1 {
+            margin: 50px;
+        }
+        #margin2 {
+            margin: 30px 50px;
+        }
+        #margin3 {
+            margin: 30px 20px 50px;
+        }
+        #margin4 {
+            margin: 30px 50px 30px 50px;
+        }
+        #margin5 {
+            margin-right: 20px;
+        }
+        #centermargin {
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 0 auto;
+            /*left와 right에 margin 이 자동으로 적용되기 때문에 가운데 정렬가능 */
+        }
+        .nestingBox {
+            width: 200px;
+            height: 100px;
+            margin: 30px;
+        }
+        #nesting1 {background: blue;}
+        #nesting2 {background: red;}
+        #nesting3 {background: green;}
+
+        .paddingBox {
+            display: inline-block;
+            border: 1px solid black;
+        }
+        #padding1 {
+            padding: 20px 30px 40px 50px;
+        }
+        #padding2 {
+            padding: 20px 30px;
+        }
+        #padding3 {
+            padding: 20px;
+        }
+        .ulTag {
+            list-style: none;
+        }
+        .liTag {
+            display: inline-block;
+            width: 100px;
+            height: 40px;
+            line-height: 40px; /*글자 수직 가운데 정렬 */
+            text-align: center; /*글자 수평 가운데 정렬 */
+            margin: 10px;
+            border: 1px solid black;
+        }
+        .floatimg {
+            /* float: right; */
+            margin-right: 40px;
+        }
+        .wrapper {
+            width: 800px;
+            margin: 10px auto;
+            padding: 20px;
+            border: 1px solid black;
+        }
+        .floatBox {
+            padding: 50px;
+            margin: 10px;
+        }
+        #floatBox1 {
+            background: yellow;
+            float: left;
+        }
+        #floatBox2 {
+            background: blue;
+            float: right;
+        }
+        .clear {
+            /* clear는 float 해제하기 */
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <h1>1.블록레벨 요소와 인라인 레벨 요소</h1>
+
+    <h1>시간이란..</h1>
+    <div class="box1">내일 죽을것처럼 <p class="accent">오늘</p>을 살고</div>
+    <p>영원히 살 것처럼<br>내일을 꿈꾸어라.</p>
+
+    <hr>
+
+    <h1>시간이란..</h1>
+    <div>내일 죽을것처럼 <span class="accent">오늘</span>을 살고</div>
+    <p>영원히 살 것처럼<br>내일을 꿈꾸어라.</p>
+
+    <hr>
+
+    <h1>2.Box-sizing 속성</h1>
+    <div class="box_content"></div>
+    <div class="box_border"></div>
+
+    <h1>3.Box-shadow 속성</h1>
+    <button class="shadowBTN">Do it!</button>
+
+    <hr>
+
+    <h1>4.Bodrer-style</h1>
+    <div class="solidBox"></div>
+    <div class="dottedBox"></div>
+    <div class="dashedBox"></div>
+    <div class="borderDiv"></div>
+    <div class="roundedBox"></div>
+    <div class="roundedBox2"></div>
+
+    <hr>
+
+    <h1>5.margin(테두리 바깥쪽 여백)</h1>
+
+    <div id="margin1" class="marginDiv"></div>
+    <div id="margin2" class="marginDiv"></div>
+    <div id="margin3" class="marginDiv"></div>
+    <div id="margin4" class="marginDiv"></div>
+    <div id="margin5" class="marginDiv"></div>
+    <div id="centermargin">수평 중앙 맞추기</div>
+
+    <hr>
+
+    <h1>**마진 중첩 현상</h1>
+    <div id="nesting1" class="nestingBox"></div>
+    <div id="nesting2" class="nestingBox"></div>
+    <div id="nesting3" class="nestingBox"></div>
+
+    <hr>
+
+    <h1>6.padding(테두리 안쪽 여백)</h1>
+    <h1 class="paddingBox">HELLO</h1>
+    <h1 id="padding1" class="paddingBox">HELLO</h1>
+    <h1 id="padding2" class="paddingBox">HELLO</h1>
+    <h1 id="padding3" class="paddingBox">HELLO</h1>
+
+    <hr>
+
+    <h1>7. display 요소(block, inline, inline-block, none)</h1>
+
+    <nav>
+        <ul class="ulTag">
+            <li class="liTag"><a href="a">메뉴1</a></li>
+            <li class="liTag"><a href="a">메뉴2</a></li>
+            <li class="liTag"><a href="a">메뉴3</a></li>
+            <li class="liTag"><a href="a">메뉴4</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <h1>8.float 속성(요소를 왼쪽/오른쪽에 떠있게 만듦)</h1>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus tempora nam dignissimos. Soluta rem excepturi totam mollitia consequatur laudantium maiores debitis quo quis fugit! Commodi voluptatem ut harum delectus saepe!</p>
+    <img src="./images/tree.png" class="floatimg">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum alias quae repudiandae at, doloremque harum ducimus autem a eos officia maxime sint iusto ipsa! Ipsa deleniti temporibus adipisci illo quae.</p>
+    <p>Lorem ipsum adipisicing elit. Ea totam corrupti quod vero autem accusamus neque fuga sint provident qui recusandae nisi incidunt eius molestias, magnam temporibus. Eligendi, ex id.</p>
+    
+    <hr>
+
+    <div class="wrapper">
+        <div class="floatBox" id="floatBox1">박스1</div>
+        <div class="floatBox" id="floatBox2">박스2</div>
+        <p>dolor sit amet, consectetur adipisicing elit. Fugiat incidunt dolor est dolorem vero velit, facere mollitia eaque, provident, obcaecati quam totam? Animi assumenda perspiciatis eos fugit dolorem eum. Ex!</p>
+        <p class="clear">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa possimus iste deserunt? Consequuntur dolore, placeat, natus deserunt voluptas ullam voluptatem ipsa est ratione repellendus cupiditate sit fugit nostrum. Animi, nobis.</p>
+    </div>
+</body>
+</html>

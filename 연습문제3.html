@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제 3</title>
+</head>
+<body>
+    <h1>레드향 주문하기</h1>
+    <form action="#" method="get">
+        <fieldset>
+            <legend><strong>배송 정보</strong></legend>
+            <label>이름<input type="text" name="order" placeholder="주문 상품 이름" autofocus required size="40"></label><br>
+            <label>배송 주문<input type="text" name="adress" placeholder="상세 주소를 입력해주세요" required size="40"></label><br>
+            <label>이메일<input type="email" name="email" placeholder="반드시 적어주세요" required size="40"></label><br>
+            <label>연락처<input type="tel" name="tel" placeholder="하이픈 빼고 입력해주세요(01012345678)" required size="40"></label><br>
+            <label>배송 지정<input type="date" name="date" required>(주문일로부터 최소 3일 이후)</label><br>
+        </fieldset>
+        <input type="submit" value="주문하기">
+        <input type="reset" value="취소하기">
+    </form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼 안에서 사용하는 태그</title>
+</head>
+<body>
+    <form action="#" method="get">
+        <label for="memo">메모</label>
+        <!-- 텍스트 양이 많을 경우 사용하는 태그, input 태그와 만찬가지로 name 속성을 이용하여 파라미터 값을 보내줌 -->
+        <!-- textarea 시작태그와 종료태그 사이에 데이터 추가 가능, 적혀있는 그대로(띄워쓰기, 줄바꿈 등)적용 됨 -->
+        <textarea id="memo" name="memo" cols="100" rows="10"></textarea><br>
+        <!-- select 태그 : 드랍다운 리스트를 만드는 태그 -->
+         <!-- option 태그 : 드랍다운 리스트 안의 각 항목을 설정하는 태그 -->
+          <!-- value 속성이 설정되어 있다면 value 데이터를 전송 -->
+        <select name="city">
+            <option value="blank">----</option>
+            <option value="seoul">서울</option>
+            <option value="daejeun">대전</option>
+            <option value="daegu">대구</option>
+            <option value="busan">부산</option>
+        </select>
+        <input type="submit" value="전송">
+        <!-- button 태그의 type을 설정하지 않을 시 submit으로 설정됨 -->
+        <button type="submit">전송</button>
+        <button type="reset">리셋</button>
+        <button type="button">버튼</button>
+    </form>
+</body>
+</html>
